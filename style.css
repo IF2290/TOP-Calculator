@@ -34,7 +34,7 @@ button{
 .zero{
     width: 234px;
 }
-.zero-button{
+.number0{
     width: 234px;
     height: 80px;
 }
@@ -42,6 +42,11 @@ button{
     background-color: rgba(219, 219, 219, 0.853);
     margin: 5px;
     padding-right: 100px;
+}
+.display{
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
 }
 .op{
     display: flex;
@@ -51,9 +56,9 @@ button{
     width: 210px;
     height: 40px;
 }
-.operators{
+.operator{
     height: 50px;
 }
-.operators-minus{
+.equals{
     height: 55px;
 }
