@@ -15,15 +15,17 @@ let operator;
 let num2;
 function operate(){
     if(operator === "+"){
-        add(num1, num2);
-    };
-    if(operator === "-"){
-        subtract(num1, num2);
-    };
-    if(operator === "*"){
-        multiply(num1, num2);
-    };
-    if(operator === "/"){
-        divide(num1, num2);
+        return add(Number(num1), Number(num2));
+    }
+    else if(operator === "-"){
+        return subtract(Number(num1), Number(num2));
+    }
+    else if(operator === "*"){
+        return multiply(Number(num1), Number(num2));
+    }
+    else if(operator === "/"){
+        return divide(Number(num1), Number(num2));
+    }else{
+        return "ERROR";
     };
 };
