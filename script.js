@@ -37,18 +37,18 @@ let num2 = "";
 let ans = "";
 function operate(){
     if(operator === "+"){
-        return add(Number(num1), Number(num2));
+        return Math.round(add(Number(num1), Number(num2)) * 100)/100;
     }
     else if(operator === "-"){
-        return subtract(Number(num1), Number(num2));
+        return Math.round(subtract(Number(num1), Number(num2)) * 100)/100;
     }
     else if(operator === "*"){
-        return multiply(Number(num1), Number(num2));
+        return Math.round(multiply(Number(num1), Number(num2)) * 100)/100;
     }
     else if(operator === "/" && num2 === "0"){
         return "Can't divide by 0 dummy!";
     }else{
-         return divide(Number(num1), Number(num2));
+         return Math.round(divide(Number(num1), Number(num2)) * 100)/100;
     };
 };
 button0.addEventListener("click", () => {
@@ -144,7 +144,7 @@ button9.addEventListener("click", () => {
 
 buttonAdd.addEventListener("click", () => {
          if(num1 !== "" && num2 !== ""){
-         ans = Math.round(operate() * 100) / 100;
+         ans = operate();
          num1 = ans;
          num2 = "";
          display.textContent = num1;
@@ -156,7 +156,7 @@ buttonAdd.addEventListener("click", () => {
 );
 buttonSub.addEventListener("click", () => {
     if(num1 !== "" && num2 !== ""){
-         ans = Math.round(operate() * 100) / 100;
+         ans = operate();
          num1 = ans;
          num2 = "";
          display.textContent = num1;
@@ -167,7 +167,7 @@ buttonSub.addEventListener("click", () => {
 });
 buttonMult.addEventListener("click", () => {
     if(num1 !== "" && num2 !== ""){
-         ans = Math.round(operate() * 100) / 100;
+         ans = operate();
          num1 = ans;
          num2 = "";
          display.textContent = num1;
@@ -177,13 +177,17 @@ buttonMult.addEventListener("click", () => {
     };
 });
 buttonDiv.addEventListener("click", () => {
-     if(num1 !== "" && num2 !== ""){
-         ans = Math.round(operate() * 100) / 100;
+     if(num1 !== "" && num2 !== "" && num1 !== NaN){
+         ans = operate();
             num1 = ans;
             num2 = "";
             display.textContent = num1;
             operator = "/";
-            display.textContent = "ERROR!";
+    }else if(num1 !== "" && num2 !== "" && num1 === NaN){
+        num1 = "";
+        num2 = "";
+        operator = undefined;
+        display.textContent = "";
     }else if(num1 !== "" && num2 === ""){
         operator = "/";
     };
@@ -191,11 +195,11 @@ buttonDiv.addEventListener("click", () => {
 
 buttonEquals.addEventListener("click", () => {
     if(num1 !== "" && num2 !== ""){
-        ans = Math.round(operate() * 100) / 100;
-        num1 = ans;
+        ans = operate();
+        num1 = "";
         num2 = "";
         operator = undefined;
-        display.textContent = num1;
+        display.textContent = ans;
     };
 });
 buttonClear.addEventListener("click", () => {
