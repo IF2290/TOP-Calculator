@@ -205,7 +205,7 @@ buttonClear.addEventListener("click", () => {
     display.textContent = num1;
 });
 buttonBackspace.addEventListener("click", () => {
-    if(operator === undefined){
+    if(operator === undefined || num2 === ""){
         num1 = num1.slice(0, -1);
         display.textContent = num1;
     }else{
