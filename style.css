@@ -60,5 +60,9 @@ button{
     height: 41.7px;
 }
 .equals{
-    height: 55px;
+    height: 54.5px;
+}
+p{
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
